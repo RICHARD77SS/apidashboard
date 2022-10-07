@@ -36,7 +36,8 @@ module.exports = {
       category,
       office,
       conversion,
-      notes, } = req.body;
+      notes,
+      baptized, } = req.body;
     if (!name) {
       return res.status(400).json({ error: 'Missing name.' })
     }
@@ -65,7 +66,7 @@ module.exports = {
       office,
       conversion,
       notes,
-      baptized: false,
+      baptized,
     });
     try {
       await person.save();
