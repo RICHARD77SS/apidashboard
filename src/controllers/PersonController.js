@@ -37,7 +37,12 @@ module.exports = {
       office,
       conversion,
       notes,
-      baptized, } = req.body;
+      baptized,
+      registerDate,
+      spouse,
+      convertedSpouse,
+      baptismDate
+    } = req.body;
     if (!name) {
       return res.status(400).json({ error: 'Missing name.' })
     }
@@ -67,6 +72,10 @@ module.exports = {
       conversion,
       notes,
       baptized,
+      registerDate,
+      spouse,
+      convertedSpouse,
+      baptismDate
     });
     try {
       await person.save();
@@ -101,7 +110,12 @@ module.exports = {
       office,
       conversion,
       notes,
-      baptized } = req.body;
+      baptized,
+      registerDate,
+      spouse,
+      convertedSpouse,
+      baptismDate
+    } = req.body;
     if (!name
       && !email
       && !password
@@ -126,11 +140,15 @@ module.exports = {
       && !conversion
       && !notes
       && !baptized
+      && !registerDate
+      && !spouse
+      && !convertedSpouse
+      && !baptismDate
     ) {
       return res.status(200).json({ error: 'you must inform a now name' })
     }
     if (name) res.person.name = name;
-    if (email) res.person.email = name
+    if (email) res.person.email = email
     if (password) res.person.password = password
     if (birth) res.person.birth = birth
     if (sex) res.person.sex = sex
@@ -153,6 +171,10 @@ module.exports = {
     if (conversion) res.person.conversion = conversion
     if (notes) res.person.notes = notes
     if (baptized) res.person.baptized = baptized
+    if (registerDate) res.person.registerDate = registerDate
+    if (spouse) res.person.spouse = spouse
+    if (convertedSpouse) res.person.convertedSpouse = convertedSpouse
+    if (baptismDate) res.perosn.baptismDate = baptismDate
 
     try {
       await res.person.save();
@@ -167,7 +189,7 @@ module.exports = {
       await res.person.remove();
       return res.status(200).json({ message: 'Person deleted successfully!' });
     } catch (error) {
-      return response.status(500).json({ error: error.message });
+      return res.status(500).json({ error: error.message });
     }
   },
 }

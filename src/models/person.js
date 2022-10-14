@@ -18,7 +18,7 @@ const personSchema = new mongoose.Schema({
     required: false,
   },
   birth: {
-    type: Number,
+    type: Date,
     required: false,
   },
   sex: {
@@ -90,17 +90,34 @@ const personSchema = new mongoose.Schema({
     required: false,
   },
   conversion: {
-    type: Number,
+    type: Date,
     required: false,
   },
   baptized: {
     type: Boolean,
     required: false,
   },
+  baptismDate: {
+    type: Date,
+    required: false,
+  },
   notes: {
     type: String,
     required: false,
   },
+  registerDate: {
+    type: String,
+    required: false,
+  },
+  spouse: {
+    type: String,
+    required: false,
+  },
+  convertedSpouse: {
+    type: Boolean,
+    required: false,
+  },
+
 });
 
 module.exports = mongoose.model('Person', personSchema);

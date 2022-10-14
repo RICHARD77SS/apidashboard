@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const extraFieldsSchema = new mongoose.Screma({
+const extraFieldsSchema = new mongoose.Schema({
   _id: {
     type: String,
     required: true,
