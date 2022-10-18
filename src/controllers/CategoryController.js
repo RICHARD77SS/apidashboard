@@ -27,7 +27,7 @@ module.exports = {
     })
     try {
       await category.save();
-      return res.status(201).json({ message: 'Category added succesfully!' })
+      return res.status(201).json({ message: 'Category added successfully!' })
     } catch (error) {
       res.status(400).json({ error: error.message });
     }
@@ -38,15 +38,15 @@ module.exports = {
       categoryDescription
     } = req.body;
     if (!categoryName && !categoryDescription) {
-      return rex.status(200).json({
+      return res.status(200).json({
         error: 'you must inform a new categoryname or new categorydescription'
       })
     }
-    if (categoryName) rex.category.categoryName = categoryName;
-    if (categoryDescription) rex.category.categoryDescription = categoryDescription;
+    if (categoryName) res.category.categoryName = categoryName;
+    if (categoryDescription) res.category.categoryDescription = categoryDescription;
     try {
-      await rex.category.save();
-      return rex.status(200).json({ message: 'Category Updated successfully' })
+      await res.category.save();
+      return res.status(200).json({ message: 'Category Updated successfully' })
     } catch (error) {
       res.status(500).json({ error: error.message })
     }
