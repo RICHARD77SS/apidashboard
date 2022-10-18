@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const groupSchema = new mongoose.Schema({
+const groupsSchema = new mongoose.Schema({
   _id: {
     type: String,
     required: true,
@@ -78,3 +78,5 @@ const groupSchema = new mongoose.Schema({
     required: false,
   },
 })
+
+module.exports = mongoose.model('Groups', groupsSchema)
