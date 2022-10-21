@@ -1,18 +1,20 @@
-const { v4: uuid } = required('uuid');
+const { v4: uuid } = require('uuid');
 const Groups = require('../models/groups')
 
 module.exports = {
   async index(req, res) {
     try {
-      const group = await Groups.find();
+      const groups = await Groups.find();
       return res.status(200).json({ groups })
     } catch (error) {
       res.status(500).json({ error: error.message })
     }
   },
+
   async store(req, res) {
     const {
       name,
+      image,
       creationDate,
       weekDay,
       sex,
@@ -29,7 +31,8 @@ module.exports = {
       country,
       state,
       city,
-      anotations
+      anotations,
+      participants
     } = req.body;
     if (!name) {
       return res.status(400).json({ error: 'Missing' })
@@ -37,6 +40,7 @@ module.exports = {
     const groups = new Groups({
       _id: uuid(),
       name,
+      image,
       creationDate,
       weekDay,
       sex,
@@ -53,18 +57,21 @@ module.exports = {
       country,
       state,
       city,
-      anotations
+      anotations,
+      participants
     })
     try {
-      await positions.save();
+      await groups.save();
       return res.status(201).json({ message: 'Groups added successfully!' })
     } catch (error) {
       res.status(400).json({ error: error.message })
     }
   },
+
   async update(req, res) {
     const {
       name,
+      image,
       creationDate,
       weekDay,
       sex,
@@ -81,12 +88,33 @@ module.exports = {
       country,
       state,
       city,
-      anotations
+      anotations,
+      participants
     } = req.body;
-    if (!name && !creationDate && !weekDay && !sex && !time && !category && !originGroup && !lider1 && !lider2 && !lider3 && !lider4 && !address && !district && !number && !country && !state && !city && !anotations) {
+    if (!name
+      && !creationDate
+      && !weekDay
+      && !sex
+      && !time
+      && !category
+      && !originGroup
+      && !lider1
+      && !lider2
+      && !lider3
+      && !lider4
+      && !address
+      && !district
+      && !number
+      && !country
+      && !state
+      && !city
+      && !anotations
+      && !participants
+    ) {
       return res.status(200).json({ error: 'You must inform a new name' })
     }
-    if (name) res.groups.name = name
+    if (name) res.groups.name = name;
+    if (image) res.groups.image = image
     if (creationDate) res.groups.creationDate = creationDate
     if (weekDay) res.groups.weekDay = weekDay
     if (sex) res.groups.sex = sex
@@ -104,8 +132,10 @@ module.exports = {
     if (state) res.groups.state = state
     if (city) res.groups.city = city
     if (anotations) res.groups.anotations = anotations
+    if (participants) res.groups.participants = participants
+    
     try {
-      await res.group.save();
+      await res.groups.save();
       return res.status(200).json({ message: 'updated successfully' })
     } catch (error) {
       res.status(500).json({ error: error.message })
@@ -113,10 +143,10 @@ module.exports = {
   },
   async delete(req, res) {
     try {
-      await res.positions.remove()
-      return res.status(200).json({message: 'deted successfully'})
+      await res.groups.remove();
+      return res.status(200).json({ message: 'Deleted successfully' })
     } catch (error) {
-      return res.status(500).json({error: error.message})
+      return res.status(500).json({ error: error.message })
     }
   },
 }

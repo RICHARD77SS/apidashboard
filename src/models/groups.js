@@ -9,6 +9,10 @@ const groupsSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  image: {
+    type: String,
+    required: false,
+  },
   creationDate: {
     type: Date,
     required: false,
@@ -37,7 +41,7 @@ const groupsSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
-  ldier2: {
+  lider2: {
     type: String,
     required: false,
   },
@@ -75,6 +79,10 @@ const groupsSchema = new mongoose.Schema({
   },
   anotations: {
     type: String,
+    required: false,
+  },
+  participants: {
+    type: {},
     required: false,
   },
 })

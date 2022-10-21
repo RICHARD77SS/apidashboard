@@ -10,6 +10,7 @@ module.exports = {
       res.status(500).json({ error: error.message })
     }
   },
+
   async store(req, res) {
     const {
       name
@@ -28,6 +29,7 @@ module.exports = {
       res.status(400).json({ error: error.message });
     }
   },
+  
   async update(req, res) {
     const {
       name

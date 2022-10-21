@@ -13,6 +13,9 @@ const CategoryMiddleware = require('./src/middlewares/CategoryMiddleware');
 const PositionsController = require('./src/controllers/PositionsController');
 const PositionsMiddleware = require('./src/middlewares/PositionsMiddleware');
 
+const GroupsController = require('./src/controllers/GroupsController')
+const GroupsMiddleware = require('./src/middlewares/GroupsMiddleware')
+
 
 routes.get('/person', PersonController.index)
 routes.post('/person', PersonController.store);
@@ -33,6 +36,11 @@ routes.get('/positions', PositionsController.index)
 routes.post('/positions', PositionsController.store);
 routes.put('/positions/:id', PositionsMiddleware.validateId, PositionsController.update);
 routes.delete('/positions/:id', PositionsMiddleware.validateId, PositionsController.delete);
+
+routes.get('/groups', GroupsController.index)
+routes.post('/groups', GroupsController.store);
+routes.put('/groups/:id', GroupsMiddleware.validateId, GroupsController.update);
+routes.delete('/groups/:id', GroupsMiddleware.validateId, GroupsController.delete);
 
 
 module.exports = routes

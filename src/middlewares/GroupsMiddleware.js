@@ -9,6 +9,7 @@ module.exports = {
     }
     try {
       const groups = await Groups.findById(id);
+      res.groups = groups
       if (!groups) {
         return res.status(404).json({ error: "Group not found" });
       }
