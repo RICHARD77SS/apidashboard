@@ -16,6 +16,7 @@ module.exports = {
     const {
       name,
       email,
+      image,
       password,
       birth,
       sex,
@@ -49,6 +50,7 @@ module.exports = {
     const person = new Person({
       _id: uuid(),
       name,
+      image,
       email,
       password,
       birth,
@@ -89,6 +91,7 @@ module.exports = {
     const {
       name,
       email,
+      image,
       password,
       birth,
       sex,
@@ -118,6 +121,7 @@ module.exports = {
     } = req.body;
     if (!name
       && !email
+      && !image
       && !password
       && !birth
       && !sex
@@ -149,6 +153,7 @@ module.exports = {
     }
     if (name) res.person.name = name;
     if (email) res.person.email = email
+    if (image) res.person.image = image
     if (password) res.person.password = password
     if (birth) res.person.birth = birth
     if (sex) res.person.sex = sex

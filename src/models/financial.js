@@ -56,6 +56,10 @@ const financialSchema = new mongoose.Schema({
   file: {
     type: String,
     required: false,
+  },
+  revenuesExpenses: {
+    type: Boolean,
+    required: true,
   }
 })
 module.exports = mongoose.model('Financial', financialSchema);

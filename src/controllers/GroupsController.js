@@ -15,6 +15,7 @@ module.exports = {
     const {
       name,
       image,
+      bg,
       creationDate,
       weekDay,
       sex,
@@ -41,6 +42,7 @@ module.exports = {
       _id: uuid(),
       name,
       image,
+      bg,
       creationDate,
       weekDay,
       sex,
@@ -72,6 +74,7 @@ module.exports = {
     const {
       name,
       image,
+      bg,
       creationDate,
       weekDay,
       sex,
@@ -92,6 +95,8 @@ module.exports = {
       participants
     } = req.body;
     if (!name
+      && !image
+      && !bg
       && !creationDate
       && !weekDay
       && !sex
@@ -115,6 +120,7 @@ module.exports = {
     }
     if (name) res.groups.name = name;
     if (image) res.groups.image = image
+    if (bg) res.groups.bg = bg
     if (creationDate) res.groups.creationDate = creationDate
     if (weekDay) res.groups.weekDay = weekDay
     if (sex) res.groups.sex = sex

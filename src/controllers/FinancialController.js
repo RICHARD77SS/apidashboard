@@ -24,8 +24,10 @@ module.exports = {
       costCenter,
       typeOfPayment,
       documentNumber,
+      competence,
       notes,
-      file
+      file,
+      revenuesExpenses
     } = req.body;
     if ( !value) {
       return res.status(400).json({ error: 'missing Date, value' })
@@ -42,8 +44,10 @@ module.exports = {
       costCenter,
       typeOfPayment,
       documentNumber,
+      competence,
       notes,
-      file
+      file,
+      revenuesExpenses
     })
     try {
       await financial.save();
@@ -64,8 +68,10 @@ module.exports = {
       costCenter,
       typeOfPayment,
       documentNumber,
+      competence,
       notes,
-      file
+      file,
+      revenuesExpenses
     } = req.body;
     if (!date
       && !description
@@ -77,8 +83,11 @@ module.exports = {
       && !costCenter
       && !typeOfPayment
       && !documentNumber
+      && !competence
       && !notes
-      && !file) {
+      && !file
+      && !revenuesExpenses
+    ) {
       return res.status(200).json({ message: 'Financial updated successfully' })
     }
     if (date) res.financial.date = date;
@@ -91,8 +100,10 @@ module.exports = {
     if (costCenter) res.financial.costCenter = costCenter;
     if (typeOfPayment) res.financial.typeOfPayment = typeOfPayment;
     if (documentNumber) res.financial.documentNumber = documentNumber;
+    if (competence) res.financial.competence = competence;
     if (notes) res.financial.notes = notes;
     if (file) res.financial.file = file;
+    if (revenuesExpenses) res.financial.revenuesExpenses = revenuesExpenses;
     try {
       await res.financial.save();
       return res.status(200).json({message: 'financial updated successfully'})

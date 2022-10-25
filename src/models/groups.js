@@ -13,6 +13,10 @@ const groupsSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
+  bg: {
+    type: String,
+    required: false,
+  },
   creationDate: {
     type: Date,
     required: false,
