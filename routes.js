@@ -19,6 +19,8 @@ const GroupsMiddleware = require('./src/middlewares/GroupsMiddleware')
 const FinancialController = require('./src/controllers/FinancialController')
 const FinancialMiddleware = require('./src/middlewares/FinancialMiddleware')
 
+const GroupCategoryController = require('./src/controllers/GroupCategoryController')
+const GroupCategoryMiddleware = require('./src/middlewares/GroupCategoryMiddleware')
 
 routes.get('/person', PersonController.index)
 routes.post('/person', PersonController.store);
@@ -50,5 +52,9 @@ routes.post('/financial', FinancialController.store);
 routes.put('/financial/:id', FinancialMiddleware.validateId, FinancialController.update);
 routes.delete('/financial/:id', FinancialMiddleware.validateId, FinancialController.delete);
 
+routes.get('/groupCategory', GroupCategoryController.index);
+routes.post('/groupCategory', GroupCategoryController.store);
+routes.put('/groupCategory/:id', GroupCategoryMiddleware.validateId, GroupCategoryController.update);
+routes.delete('/groupCategory/:id', GroupCategoryMiddleware.validateId, GroupCategoryController.delete);
 
 module.exports = routes
