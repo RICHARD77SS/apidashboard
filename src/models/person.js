@@ -110,7 +110,7 @@ const personSchema = new mongoose.Schema({
     required: false,
   },
   registerDate: {
-    type: String,
+    type: Date,
     required: false,
   },
   spouse: {

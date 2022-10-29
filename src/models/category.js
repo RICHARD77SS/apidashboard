@@ -5,13 +5,13 @@ const categorySchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  categoryName: {
+  name: {
     type: String,
     required: true,
   },
-  categoryDescription: {
+  description: {
     type: String,
-    required: true,
+    required: false,
   }
 })
 

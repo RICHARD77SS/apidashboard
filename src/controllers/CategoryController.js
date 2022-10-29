@@ -12,18 +12,18 @@ module.exports = {
   },
   async store(req, res) {
     const {
-      categoryName,
-      categoryDescription
+      name,
+      description
     } = req.body;
-    if (!categoryName || !categoryDescription) {
+    if (!name) {
       return res.status(400).json({
-        error: 'Missing categoryName or categoryDescription'
+        error: 'Missing name '
       })
     }
     const category = new Category({
       _id: uuid(),
-      categoryName,
-      categoryDescription
+      name,
+      description
     })
     try {
       await category.save();
@@ -34,16 +34,16 @@ module.exports = {
   },
   async update(req, res) {
     const {
-      categoryName,
-      categoryDescription
+      name,
+      description
     } = req.body;
-    if (!categoryName && !categoryDescription) {
+    if (!name && !description) {
       return res.status(200).json({
-        error: 'you must inform a new categoryname or new categorydescription'
+        error: 'you must inform a new name or new description'
       })
     }
-    if (categoryName) res.category.categoryName = categoryName;
-    if (categoryDescription) res.category.categoryDescription = categoryDescription;
+    if (name) res.category.name = name;
+    if (description) res.category.description = description;
     try {
       await res.category.save();
       return res.status(200).json({ message: 'Category Updated successfully' })

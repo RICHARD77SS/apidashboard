@@ -42,19 +42,19 @@ const groupsSchema = new mongoose.Schema({
     required: false,
   },
   lider1: {
-    type: String,
+    type: {},
     required: false,
   },
   lider2: {
-    type: String,
+    type: {},
     required: false,
   },
   lider3: {
-    type: String,
+    type: {},
     required: false,
   },
   lider4: {
-    type: String,
+    type: {},
     required: false,
   },
   address: {
