@@ -28,6 +28,10 @@ const studiesSchema = new mongoose.Schema({
   notification: {
     type: Boolean,
     required: false,
+  },
+  date: {
+    type: Date,
+    required: true,
   }
 })
 

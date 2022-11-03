@@ -139,7 +139,7 @@ module.exports = {
     if (city) res.groups.city = city
     if (anotations) res.groups.anotations = anotations
     if (participants) res.groups.participants = participants
-    
+
     try {
       await res.groups.save();
       return res.status(200).json({ message: 'updated successfully' })

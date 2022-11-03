@@ -22,6 +22,12 @@ const FinancialMiddleware = require('./src/middlewares/FinancialMiddleware')
 const GroupCategoryController = require('./src/controllers/GroupCategoryController')
 const GroupCategoryMiddleware = require('./src/middlewares/GroupCategoryMiddleware')
 
+const StudiesController = require('./src/controllers/StudiesController')
+const StudiesMiddleware = require('./src/middlewares/StudiesMiddleware')
+
+const StudiesCategoryController = require('./src/controllers/StudiesCategoryController')
+const StudiesCategoryMiddleware = require('./src/middlewares/StudiesCategoryMiddleware')
+
 routes.get('/person', PersonController.index)
 routes.post('/person', PersonController.store);
 routes.put('/person/:id', PersonMiddleware.validateId, PersonController.update);
@@ -56,5 +62,15 @@ routes.get('/groupCategory', GroupCategoryController.index);
 routes.post('/groupCategory', GroupCategoryController.store);
 routes.put('/groupCategory/:id', GroupCategoryMiddleware.validateId, GroupCategoryController.update);
 routes.delete('/groupCategory/:id', GroupCategoryMiddleware.validateId, GroupCategoryController.delete);
+
+routes.get('/studies', StudiesController.index);
+routes.post('/studies', StudiesController.store);
+routes.put('/studies/:id', StudiesMiddleware.validateId, StudiesController.update);
+routes.delete('/studies/:id', StudiesMiddleware.validateId, StudiesController.delete);
+
+routes.get('/studiescategory', StudiesCategoryController.index);
+routes.post('/studiescategory', StudiesCategoryController.store);
+routes.put('/studiescategory/:id', StudiesCategoryMiddleware.validateId, StudiesCategoryController.update);
+routes.delete('/studiescategory/:id', StudiesCategoryMiddleware.validateId, StudiesCategoryController.delete);
 
 module.exports = routes

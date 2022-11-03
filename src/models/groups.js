@@ -34,7 +34,7 @@ const groupsSchema = new mongoose.Schema({
     required: false,
   },
   category: {
-    type: String,
+    type: [],
     required: false,
   },
   originGroup: {
@@ -88,7 +88,7 @@ const groupsSchema = new mongoose.Schema({
   participants: {
     type: {},
     required: false,
-  },
+  }
 })
 
 module.exports = mongoose.model('Groups', groupsSchema)

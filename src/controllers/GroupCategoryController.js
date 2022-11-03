@@ -39,7 +39,7 @@ module.exports = {
     } = req.body;
     if (!name && !description) {
       return res.status(200).json({
-        error: 'you must Inform a new nam,e or new description'
+        error: 'you must Inform a new name or new description'
       })
     }
     if (name) res.groupCategory.name = name;

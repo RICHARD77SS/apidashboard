@@ -82,15 +82,15 @@ const personSchema = new mongoose.Schema({
     required: false,
   },
   group: {
-    type: String,
+    type: [],
     required: false,
   },
   category: {
-    type: String,
+    type: [],
     required: false,
   },
   office: {
-    type: String,
+    type: [],
     required: false,
   },
   conversion: {

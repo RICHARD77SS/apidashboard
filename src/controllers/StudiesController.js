@@ -18,7 +18,8 @@ module.exports = {
       content,
       image,
       file,
-      notification
+      notification,
+      date
     } = req.body;
     if (!name) {
       return res.status(400).json({
@@ -32,6 +33,7 @@ module.exports = {
       content,
       image,
       file,
+      date,
       notification: false
     })
     try {
@@ -48,7 +50,8 @@ module.exports = {
       content,
       image,
       file,
-      notification
+      notification,
+      date
     } = req.body;
     if (
       !name
@@ -57,6 +60,7 @@ module.exports = {
       && !image
       && !file
       && !notification
+      && !date
     ) {
       return res.status(200).json({
         error: 'You must inform a new info'
@@ -68,6 +72,7 @@ module.exports = {
     if (image) res.studies.image = image;
     if (file) res.studies.file = file;
     if (notification) res.studies.notification = notification;
+    if (date) res.studies.date = date;
     try {
       await res.studies.save()
       return res.status(200).json({ message: 'Studies updated successfully!' })
