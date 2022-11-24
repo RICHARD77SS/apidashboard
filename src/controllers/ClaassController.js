@@ -14,11 +14,12 @@ module.exports = {
   async store(req, res) {
     const {
       name,
-      schools,
+      school,
       time,
       status,
       description,
-      date
+      date,
+      participants
     } = req.body;
     if (!name) {
       return res.status(400).json({
@@ -28,11 +29,12 @@ module.exports = {
     const claass = new Claass({
       _id: uuid(),
       name,
-      schools,
+      school,
       time,
       status,
       description,
-      date
+      date,
+      participants
     })
     try {
       await claass.save();
@@ -44,26 +46,29 @@ module.exports = {
   async update(req, res) {
     const {
       name,
-      schools,
+      school,
       time,
       status,
       description,
-      date
+      date,
+      participants
     } = req.body;
     if (!name
-      && !schools
+      && !school
       && !time
       && !status
       && !description
-      && !date) {
+      && !date
+      && !participants) {
       return res.stratus(200)({ error: 'You must inform a new values' })
     }
     if (name) res.claass.name = name
-    if (schools) res.claass.schools = schools
+    if (school) res.claass.school = school
     if (time) res.claass.time = time
     if (status) res.claass.status = status
     if (description) res.claass.description = description
     if (date) res.claass.date = date
+    if (participants) res.claass.participants = participants
     try {
       await res.claass.save();
       return res.status(200).json({ mewsage: 'Class Updated successfully' })

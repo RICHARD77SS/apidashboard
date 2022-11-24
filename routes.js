@@ -28,6 +28,33 @@ const StudiesMiddleware = require('./src/middlewares/StudiesMiddleware')
 const StudiesCategoryController = require('./src/controllers/StudiesCategoryController')
 const StudiesCategoryMiddleware = require('./src/middlewares/StudiesCategoryMiddleware')
 
+const MeetingsController = require('./src/controllers/MeetingsController')
+const MeetingsMiddleware = require('./src/middlewares/MeetingsMiddleware')
+
+const SchoolsController = require('./src/controllers/SchoolsController')
+const SchoolsMiddleware = require('./src/middlewares/SchoolsMiddleware')
+
+const ClaassController = require('./src/controllers/ClaassController')
+const ClaassMiddleware = require('./src/middlewares/ClaassMiddleware')
+
+const SubjectsController = require('./src/controllers/SubjectsController')
+const SubjectsMiddleware = require('./src/middlewares/SubjectsMiddleware')
+
+const ClassroomController = require('./src/controllers/ClassRoomController')
+const ClassroomMiddleware = require('./src/middlewares/ClassRoomMiddleware')
+
+
+const OrientationController = require('./src/controllers/OrientationController')
+const OrientationMiddleware = require('./src/middlewares/OrientationMiddleware')
+
+const UploadController = require('./src/controllers/UploadController')
+const multerConfig = require('./src/config/multer')
+const multer = require('multer');
+
+routes.post('/upload', multer(multerConfig).single('file'), UploadController.index)
+
+
+
 routes.get('/person', PersonController.index)
 routes.post('/person', PersonController.store);
 routes.put('/person/:id', PersonMiddleware.validateId, PersonController.update);
@@ -73,4 +100,34 @@ routes.post('/studiescategory', StudiesCategoryController.store);
 routes.put('/studiescategory/:id', StudiesCategoryMiddleware.validateId, StudiesCategoryController.update);
 routes.delete('/studiescategory/:id', StudiesCategoryMiddleware.validateId, StudiesCategoryController.delete);
 
+routes.get('/meetings', MeetingsController.index);
+routes.post('/meetings', MeetingsController.store);
+routes.put('/meetings/:id', MeetingsMiddleware.validateId, MeetingsController.update);
+routes.delete('/meetings/:id', MeetingsMiddleware.validateId, MeetingsController.delete);
+
+routes.get('/schools', SchoolsController.index);
+routes.post('/schools', SchoolsController.store);
+routes.put('/schools/:id', SchoolsMiddleware.validateId, SchoolsController.update);
+routes.delete('/schools/:id', SchoolsMiddleware.validateId, SchoolsController.delete);
+
+routes.get('/claass', ClaassController.index);
+routes.post('/claass', ClaassController.store);
+routes.put('/claass/:id', ClaassMiddleware.validateId, ClaassController.update);
+routes.delete('/claass/:id', ClaassMiddleware.validateId, ClaassController.delete);
+
+routes.get('/subjects', SubjectsController.index);
+routes.post('/subjects', SubjectsController.store);
+routes.put('/subjects/:id', SubjectsMiddleware.validateId, SubjectsController.update);
+routes.delete('/subjects/:id', SubjectsMiddleware.validateId, SubjectsController.delete);
+
+routes.get('/classroom', ClassroomController.index);
+routes.post('/classroom', ClassroomController.store);
+routes.put('/classroom/:id', ClassroomMiddleware.validateId, ClassroomController.update);
+routes.delete('/classroom/:id', ClassroomMiddleware.validateId, ClassroomController.delete);
+
+
+routes.get('/orientation', OrientationController.index);
+routes.post('/orientation', OrientationController.store);
+routes.put('/orientation/:id', OrientationMiddleware.validateId, OrientationController.update);
+routes.delete('/orientation/:id', OrientationMiddleware.validateId, OrientationController.delete)
 module.exports = routes

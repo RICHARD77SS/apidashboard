@@ -6,6 +6,8 @@ const mongoose = require('mongoose');
 const routes = require('../routes');
 const connectToDatabase = require('./database');
 
+
+
 connectToDatabase();
 
 const app = express();

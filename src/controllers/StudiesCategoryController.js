@@ -7,7 +7,7 @@ module.exports = {
       const studiesCategory = await StudiesCategory.find();
       return res.status(200).json({ studiesCategory })
     } catch (error) {
-      res.statsu(500).json({ error: error.message })
+      res.status(500).json({ error: error.message })
     }
   },
   async store(req, res) {

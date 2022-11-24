@@ -16,7 +16,8 @@ module.exports = {
       status,
       lideres,
       anotations,
-      people
+      people,
+      meetings
     } = req.body;
     if (!className) {
       return res.status(400).json({
@@ -29,7 +30,8 @@ module.exports = {
       status,
       lideres,
       anotations,
-      people
+      people,
+      meetings
     })
     try {
       await orientation.save();
@@ -44,9 +46,10 @@ module.exports = {
       status,
       lideres,
       anotations,
-      people
+      people,
+      meetings
     } = req.body;
-    if (!className && !status && !lideres && !anotations && !people) {
+    if (!className && !status && !lideres && !anotations && !people && !meetings) {
       return res.status(200).json({ message: 'You must inform className or other info!' })
     }
     if (className) res.orientation.className = className;
@@ -54,6 +57,7 @@ module.exports = {
     if (lideres) res.orientation.lideres = lideres;
     if (anotations) res.orientation.anotations = anotations;
     if (people) res.orientation.people = people;
+    if (meetings) res.orientation.meetings = meetings;
 
     try {
       await res.orientation.save()

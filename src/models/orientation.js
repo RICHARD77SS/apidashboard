@@ -24,7 +24,16 @@ const orientationSchema = new mongoose.Schema({
   people: {
     type: [],
     required: false,
-  }
+  },
+  meetings: [{
+    subject: String,
+    description: String,
+    date: Date,
+    startTime: Number,
+    duration: String,
+    place: String,
+    statusMeeting: String,
+  }]
 })
 
 module.exports = mongoose.model('Orientation', orientationSchema)

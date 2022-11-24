@@ -1,5 +1,5 @@
 const { validate: isUuid } = require('uuid');
-const Subjects = require('../models/subjects')
+const Subjects = require('../models/subjects');
 
 module.exports = {
   async validateId(req, res, next) {

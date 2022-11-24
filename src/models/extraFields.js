@@ -14,7 +14,7 @@ const extraFieldsSchema = new mongoose.Schema({
     required: true,
   },
   inputOption: {
-    type: {},
+    type: [],
     required: true,
   }
 })

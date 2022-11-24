@@ -28,6 +28,10 @@ const claassSchema = new mongoose.Schema({
   date: {
     type: Date,
     required: false,
+  },
+  participants: {
+    type: [],
+    required: false,
   }
 })
 
