@@ -1,6 +1,7 @@
 const express = require('express');
 
 const routes = express.Router();
+
 const PersonController = require('./src/controllers/PersonController');
 const PersonMiddleware = require('./src/middlewares/PersonMiddleware');
 
@@ -43,9 +44,35 @@ const SubjectsMiddleware = require('./src/middlewares/SubjectsMiddleware')
 const ClassroomController = require('./src/controllers/ClassRoomController')
 const ClassroomMiddleware = require('./src/middlewares/ClassRoomMiddleware')
 
-
 const OrientationController = require('./src/controllers/OrientationController')
 const OrientationMiddleware = require('./src/middlewares/OrientationMiddleware')
+
+const FinancialCategoryController = require('./src/controllers/FinancialCategoryController');
+const FinancialCategoryMiddleware = require('./src/middlewares/FinancialCategoryMiddleware');
+
+const AccountController = require('./src/controllers/AccountController');
+const AccountMiddleware = require('./src/middlewares/AccountMiddleware');
+
+const CustCenterController = require('./src/controllers/CustCenterController');
+const CustCenterMiddleware = require('./src/middlewares/CustCenterMiddleware');
+
+const ContactCategoryController = require('./src/controllers/ContactCategoryController');
+const ContactCategoryMiddleware = require('./src/middlewares/ContactCategoryMiddleware');
+
+const ContactController = require('./src/controllers/ContactController');
+const ContactMiddleware = require('./src/middlewares/ContactMiddleware');
+
+const TransferController = require('./src/controllers/TransferController');
+const TransferMiddleware = require('./src/middlewares/TransferMiddleware');
+
+const PatrimoniesController = require('./src/controllers/PatrimoniesController');
+const PatrimoniesMiddleware = require('./src/middlewares/PatrimoniesMiddleware');
+
+const CategoryPatrimoniesController = require('./src/controllers/CategoryPatrimoniesController');
+const CategoryPatrimoniesMiddleware = require('./src/middlewares/CategoryPatrimoniesMiddleware');
+
+const PlacesPatrimoniesController = require('./src/controllers/PlacesPatrimoniesController');
+const PlacesPatrimoniesMiddleware = require('./src/middlewares/PlacesPatrimoniesMiddleware');
 
 const UploadController = require('./src/controllers/UploadController')
 const multerConfig = require('./src/config/multer')
@@ -125,9 +152,54 @@ routes.post('/classroom', ClassroomController.store);
 routes.put('/classroom/:id', ClassroomMiddleware.validateId, ClassroomController.update);
 routes.delete('/classroom/:id', ClassroomMiddleware.validateId, ClassroomController.delete);
 
-
 routes.get('/orientation', OrientationController.index);
 routes.post('/orientation', OrientationController.store);
 routes.put('/orientation/:id', OrientationMiddleware.validateId, OrientationController.update);
 routes.delete('/orientation/:id', OrientationMiddleware.validateId, OrientationController.delete)
+
+routes.get('/financialcategory', FinancialCategoryController.index)
+routes.post('/financialcategory', FinancialCategoryController.store);
+routes.put('/financialcategory/:id', FinancialCategoryMiddleware.validateId, FinancialCategoryController.update);
+routes.delete('/financialcategory/:id', FinancialCategoryMiddleware.validateId, FinancialCategoryController.delete);
+
+routes.get('/account', AccountController.index)
+routes.post('/account', AccountController.store);
+routes.put('/account/:id', AccountMiddleware.validateId, AccountController.update);
+routes.delete('/account/:id', AccountMiddleware.validateId, AccountController.delete);
+
+routes.get('/custcenter', CustCenterController.index)
+routes.post('/custcenter', CustCenterController.store);
+routes.put('/custcenter/:id', CustCenterMiddleware.validateId, CustCenterController.update);
+routes.delete('/custcenter/:id', CustCenterMiddleware.validateId, CustCenterController.delete);
+
+routes.get('/contactcategory', ContactCategoryController.index)
+routes.post('/contactcategory', ContactCategoryController.store);
+routes.put('/contactcategory/:id', ContactCategoryMiddleware.validateId, ContactCategoryController.update);
+routes.delete('/contactcategory/:id', ContactCategoryMiddleware.validateId, ContactCategoryController.delete);
+
+routes.get('/contact', ContactController.index)
+routes.post('/contact', ContactController.store);
+routes.put('/contact/:id', ContactMiddleware.validateId, ContactController.update);
+routes.delete('/contact/:id', ContactMiddleware.validateId, ContactController.delete);
+
+routes.get('/transfer', TransferController.index)
+routes.post('/transfer', TransferController.store);
+routes.put('/transfer/:id', TransferMiddleware.validateId, TransferController.update);
+routes.delete('/transfer/:id', TransferMiddleware.validateId, TransferController.delete);
+
+routes.get('/patrimonies', PatrimoniesController.index)
+routes.post('/patrimonies', PatrimoniesController.store);
+routes.put('/patrimonies/:id', PatrimoniesMiddleware.validateId, PatrimoniesController.update);
+routes.delete('/patrimonies/:id', PatrimoniesMiddleware.validateId, PatrimoniesController.delete);
+
+routes.get('/categorypatrimonies', CategoryPatrimoniesController.index)
+routes.post('/categorypatrimonies', CategoryPatrimoniesController.store);
+routes.put('/categorypatrimonies/:id', CategoryPatrimoniesMiddleware.validateId, CategoryPatrimoniesController.update);
+routes.delete('/categorypatrimonies/:id', CategoryPatrimoniesMiddleware.validateId, CategoryPatrimoniesController.delete);
+
+routes.get('/placespatrimonies', PlacesPatrimoniesController.index)
+routes.post('/placespatrimonies', PlacesPatrimoniesController.store);
+routes.put('/placespatrimonies/:id', PlacesPatrimoniesMiddleware.validateId, PlacesPatrimoniesController.update);
+routes.delete('/placespatrimonies/:id', PlacesPatrimoniesMiddleware.validateId, PlacesPatrimoniesController.delete);
+
 module.exports = routes

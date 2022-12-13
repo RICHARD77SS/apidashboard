@@ -27,9 +27,11 @@ module.exports = {
       competence,
       notes,
       file,
-      revenuesExpenses
+      revenuesExpenses,
+      frequenci,
+      repetition
     } = req.body;
-    if ( !value) {
+    if (!value) {
       return res.status(400).json({ error: 'missing Date, value' })
     }
     const financial = new Financial({
@@ -47,7 +49,9 @@ module.exports = {
       competence,
       notes,
       file,
-      revenuesExpenses
+      revenuesExpenses,
+      frequenci,
+      repetition
     })
     try {
       await financial.save();
@@ -71,7 +75,9 @@ module.exports = {
       competence,
       notes,
       file,
-      revenuesExpenses
+      revenuesExpenses,
+      frequenci,
+      repetition
     } = req.body;
     if (!date
       && !description
@@ -87,6 +93,8 @@ module.exports = {
       && !notes
       && !file
       && !revenuesExpenses
+      && !frequenci
+      && !repetition
     ) {
       return res.status(200).json({ message: 'Financial updated successfully' })
     }
@@ -104,20 +112,22 @@ module.exports = {
     if (notes) res.financial.notes = notes;
     if (file) res.financial.file = file;
     if (revenuesExpenses) res.financial.revenuesExpenses = revenuesExpenses;
+    if (frequenci) res.financial.frequenci = frequenci;
+    if (repetition) res.financial.repetition = repetition;
     try {
       await res.financial.save();
-      return res.status(200).json({message: 'financial updated successfully'})
+      return res.status(200).json({ message: 'financial updated successfully' })
     } catch (error) {
-      res.status(500).json({error: error.message})
+      res.status(500).json({ error: error.message })
     }
   },
 
-  async delete(req,res) {
+  async delete(req, res) {
     try {
       await res.financial.remove();
-      return res.status(200).json({message: 'Deleted successfully'})
+      return res.status(200).json({ message: 'Deleted successfully' })
     } catch (error) {
-      return res.status(500).json({error: error.message})
+      return res.status(500).json({ error: error.message })
     }
   },
 }

@@ -49,6 +49,14 @@ const financialSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
+  frequenci: {
+    type: String,
+    required: false,
+  },
+  repetition: {
+    type: String,
+    required: false,
+  },
   competence: {
     type: Date,
     required: false,
