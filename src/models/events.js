@@ -26,7 +26,7 @@ const eventsSchema = new mongoose.Schema({
     required: false,
   },
   payment: {
-    type: Boolean,
+    type: String,
     required: false,
   },
   value: {
@@ -42,7 +42,7 @@ const eventsSchema = new mongoose.Schema({
     required: false,
   },
   schedule: {
-    type: {},
+    type: [],
     required: false,
   },
   aboutTheEvent: {
@@ -58,7 +58,7 @@ const eventsSchema = new mongoose.Schema({
     required: false,
   },
   speakers: {
-    type: {},
+    type: [],
     required: false,
   },
 })

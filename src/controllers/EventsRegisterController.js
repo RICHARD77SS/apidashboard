@@ -13,20 +13,18 @@ module.exports = {
   async store(req, res) {
     const {
       name,
-      subName,
-      startDate,
-      endDate,
-      notification,
+      evento,
+      phone,
+      email,
+      address,
+      number,
+      district,
+      zipCode,
+      country,
+      state,
+      city,
       payment,
-      value,
-      numberOfVacancies,
-      formOfPayment,
-      schedule,
-      aboutTheEvent,
-      place,
-      image,
-      speakers
-
+      date,
     } = req.body;
     if (!name) {
       return res.status(400).json({
@@ -36,19 +34,18 @@ module.exports = {
     const eventsRegister = new EventsRegister({
       _id: uuid(),
       name,
-      subName,
-      startDate,
-      endDate,
-      notification,
+      evento,
+      phone,
+      email,
+      address,
+      number,
+      district,
+      zipCode,
+      country,
+      state,
+      city,
       payment,
-      value,
-      numberOfVacancies,
-      formOfPayment,
-      schedule,
-      aboutTheEvent,
-      place,
-      image,
-      speakers
+      date
     })
     try {
       await eventsRegister.save();
@@ -60,39 +57,50 @@ module.exports = {
   async update(req, res) {
     const {
       name,
-      subName,
-      startDate,
-      endDate,
-      notification,
+      evento,
+      phone,
+      email,
+      address,
+      number,
+      district,
+      zipCode,
+      country,
+      state,
+      city,
       payment,
-      value,
-      numberOfVacancies,
-      formOfPayment,
-      schedule,
-      aboutTheEvent,
-      place,
-      image,
-      speakers
+      date
     } = req.body;
-    if (!name && !subName) {
+    if (!name
+      && !evento
+      && !phone
+      && !email
+      && !address
+      && !number
+      && !district
+      && !zipCode
+      && !country
+      && !state
+      && !city
+      && !payment
+      && !date
+    ) {
       return res.status(200).json({
-        error: 'you must inform a new name or new subName'
+        error: 'you must inform a new name or new event'
       })
     }
     if (name) res.eventsRegister.name = name;
-    if (subName) res.eventsRegister.subName = subName;
-    if (startDate) res.eventsRegister.startDate = startDate;
-    if (endDate) res.eventsRegister.endDate = endDate;
-    if (notification) res.eventsRegister.notification = notification;
+    if (evento) res.eventsRegister.event = evento;
+    if (phone) res.eventsRegister.phone = phone;
+    if (email) res.eventsRegister.email = email;
+    if (address) res.eventsRegister.address = address;
+    if (number) res.eventsRegister.number = number;
+    if (district) res.eventsRegister.district = district;
+    if (zipCode) res.eventsRegister.zipCode = zipCode;
+    if (country) res.eventsRegister.country = country;
+    if (state) res.eventsRegister.state = state;
+    if (city) res.eventsRegister.city = city;
     if (payment) res.eventsRegister.payment = payment;
-    if (value) res.eventsRegister.value = value;
-    if (numberOfVacancies) res.eventsRegister.numberOfVacancies = numberOfVacancies;
-    if (formOfPayment) res.eventsRegister.formOfPayment = formOfPayment;
-    if (schedule) res.eventsRegister.schedule = schedule;
-    if (aboutTheEvent) res.eventsRegister.aboutTheEvent = aboutTheEvent;
-    if (place) res.eventsRegister.place = place;
-    if (image) res.eventsRegister.image = image;
-    if (speakers) res.eventsRegister.speakers = speakers;
+    if (date) res.eventsRegister.date = date;
     try {
       await res.eventsRegister.save();
       return res.status(200).json({ message: 'eventsRegister Updated successfully' })

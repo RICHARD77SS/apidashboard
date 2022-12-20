@@ -14,6 +14,7 @@ module.exports = {
     const {
       name,
       visibility,
+      color,
       startDate,
       startHour,
       endDate,
@@ -32,6 +33,7 @@ module.exports = {
       _id: uuid(),
       name,
       visibility,
+      color,
       startDate,
       startHour,
       endDate,
@@ -52,6 +54,7 @@ module.exports = {
     const {
       name,
       visibility,
+      color,
       startDate,
       startHour,
       endDate,
@@ -63,6 +66,7 @@ module.exports = {
     } = req.body;
     if (!name
       && !visibility
+      && !color
       && !startDate
       && !startHour
       && !endDate
@@ -78,6 +82,7 @@ module.exports = {
     }
     if (name) res.scheduleCalendar.name = name;
     if (visibility) res.scheduleCalendar.visibility = visibility;
+    if (color) res.scheduleCalendar.color = color;
     if (startDate) res.scheduleCalendar.startDate = startDate;
     if (startHour) res.scheduleCalendar.startHour = startHour;
     if (endDate) res.scheduleCalendar.endDate = endDate;

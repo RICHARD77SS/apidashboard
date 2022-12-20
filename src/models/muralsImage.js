@@ -6,7 +6,7 @@ const muralsImageSchema = new mongoose.Schema({
     required: true,
   },
   image: {
-    type: {},
+    type: String,
     required: true,
   },
   status: {

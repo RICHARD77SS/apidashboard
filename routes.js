@@ -74,6 +74,30 @@ const CategoryPatrimoniesMiddleware = require('./src/middlewares/CategoryPatrimo
 const PlacesPatrimoniesController = require('./src/controllers/PlacesPatrimoniesController');
 const PlacesPatrimoniesMiddleware = require('./src/middlewares/PlacesPatrimoniesMiddleware');
 
+const ScheduleCalendarController = require('./src/controllers/ScheduleCalendarController');
+const ScheduleCalendarMiddleware = require('./src/middlewares/ScheduleCalendarMiddleware');
+
+const EventsController = require('./src/controllers/EventsController');
+const EventsMiddleware = require('./src/middlewares/EventsMiddleware');
+
+const CategoryScheduleController = require('./src/controllers/CategoryScheduleController');
+const CategoryScheduleMiddleware = require('./src/middlewares/CategoryScheduleMiddleware');
+
+const MuralsTextController = require('./src/controllers/MuralsTextController');
+const MuralsTextMiddleware = require('./src/middlewares/MuralsTextMiddleware');
+
+const MuralsImageController = require('./src/controllers/MuralsImageController');
+const MuralsImageMiddleware = require('./src/middlewares/MuralsImageMiddleware');
+
+const EventsRegisterController = require('./src/controllers/EventsRegisterController');
+const EventsRegisterMiddleware = require('./src/middlewares/EventsRegisterMiddleware');
+
+const CategoryAnotationsController = require('./src/controllers/CategoryAnotationsController');
+const CategoryAnotationsMiddleware = require('./src/middlewares/CategoryAnotationsMiddleware');
+
+const AnotationsController = require('./src/controllers/AnotationsController');
+const AnotationsMiddleware = require('./src/middlewares/AnotationsMiddleware');
+
 const UploadController = require('./src/controllers/UploadController')
 const multerConfig = require('./src/config/multer')
 const multer = require('multer');
@@ -202,4 +226,43 @@ routes.post('/placespatrimonies', PlacesPatrimoniesController.store);
 routes.put('/placespatrimonies/:id', PlacesPatrimoniesMiddleware.validateId, PlacesPatrimoniesController.update);
 routes.delete('/placespatrimonies/:id', PlacesPatrimoniesMiddleware.validateId, PlacesPatrimoniesController.delete);
 
+routes.get('/schedulecalendar', ScheduleCalendarController.index)
+routes.post('/schedulecalendar', ScheduleCalendarController.store);
+routes.put('/schedulecalendar/:id', ScheduleCalendarMiddleware.validateId, ScheduleCalendarController.update);
+routes.delete('/schedulecalendar/:id', ScheduleCalendarMiddleware.validateId, ScheduleCalendarController.delete);
+
+routes.get('/events', EventsController.index)
+routes.post('/events', EventsController.store);
+routes.put('/events/:id', EventsMiddleware.validateId, EventsController.update);
+routes.delete('/events/:id', EventsMiddleware.validateId, EventsController.delete);
+
+routes.get('/categoryschedule', CategoryScheduleController.index)
+routes.post('/categoryschedule', CategoryScheduleController.store);
+routes.put('/categoryschedule/:id', CategoryScheduleMiddleware.validateId, CategoryScheduleController.update);
+routes.delete('/categoryschedule/:id', CategoryScheduleMiddleware.validateId, CategoryScheduleController.delete);
+
+routes.get('/muralstext', MuralsTextController.index)
+routes.post('/muralstext', MuralsTextController.store);
+routes.put('/muralstext/:id', MuralsTextMiddleware.validateId, MuralsTextController.update);
+routes.delete('/muralstext/:id', MuralsTextMiddleware.validateId, MuralsTextController.delete);
+
+routes.get('/muralsimage', MuralsImageController.index)
+routes.post('/muralsimage', MuralsImageController.store);
+routes.put('/muralsimage/:id', MuralsImageMiddleware.validateId, MuralsImageController.update);
+routes.delete('/muralsimage/:id', MuralsImageMiddleware.validateId, MuralsImageController.delete);
+
+routes.get('/eventsregister', EventsRegisterController.index)
+routes.post('/eventsregister', EventsRegisterController.store);
+routes.put('/eventsregister/:id', EventsRegisterMiddleware.validateId, EventsRegisterController.update);
+routes.delete('/eventsregister/:id', EventsRegisterMiddleware.validateId, EventsRegisterController.delete);
+
+routes.get('/categoryanotations', CategoryAnotationsController.index)
+routes.post('/categoryanotations', CategoryAnotationsController.store);
+routes.put('/categoryanotations/:id', CategoryAnotationsMiddleware.validateId, CategoryAnotationsController.update);
+routes.delete('/categoryanotations/:id', CategoryAnotationsMiddleware.validateId, CategoryAnotationsController.delete);
+
+routes.get('/anotations', AnotationsController.index)
+routes.post('/anotations', AnotationsController.store);
+routes.put('/anotations/:id', AnotationsMiddleware.validateId, AnotationsController.update);
+routes.delete('/anotations/:id', AnotationsMiddleware.validateId, AnotationsController.delete);
 module.exports = routes

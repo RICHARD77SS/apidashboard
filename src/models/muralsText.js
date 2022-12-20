@@ -21,7 +21,7 @@ const muralsTextSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
-  backGround: {
+  background: {
     type: String,
     required: false,
   },

@@ -5,13 +5,13 @@ const eventsRegisterSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  event: {
+  evento: {
     type: String,
-    required: true,
+    required: false,
   },
   name: {
     type: String,
-    required: true,
+    required: false,
   },
   phone: {
     type: Number,
@@ -51,6 +51,10 @@ const eventsRegisterSchema = new mongoose.Schema({
   },
   payment: {
     type: String,
+    required: false,
+  },
+  date: {
+    type: Date,
     required: false,
   }
 })
