@@ -98,6 +98,12 @@ const CategoryAnotationsMiddleware = require('./src/middlewares/CategoryAnotatio
 const AnotationsController = require('./src/controllers/AnotationsController');
 const AnotationsMiddleware = require('./src/middlewares/AnotationsMiddleware');
 
+const PhotoAlbumController = require('./src/controllers/PhotoAlbumController');
+const PhotoAlbumMiddleware = require('./src/middlewares/PhotoAlbumMiddleware');
+
+const VideoAlbumController = require('./src/controllers/VideoAlbumController');
+const VideoAlbumMiddleware = require('./src/middlewares/VideoAlbumMiddleware');
+
 const UploadController = require('./src/controllers/UploadController')
 const multerConfig = require('./src/config/multer')
 const multer = require('multer');
@@ -265,4 +271,14 @@ routes.get('/anotations', AnotationsController.index)
 routes.post('/anotations', AnotationsController.store);
 routes.put('/anotations/:id', AnotationsMiddleware.validateId, AnotationsController.update);
 routes.delete('/anotations/:id', AnotationsMiddleware.validateId, AnotationsController.delete);
+
+routes.get('/photoalbum', PhotoAlbumController.index)
+routes.post('/photoalbum', PhotoAlbumController.store);
+routes.put('/photoalbum/:id', PhotoAlbumMiddleware.validateId, PhotoAlbumController.update);
+routes.delete('/photoalbum/:id', PhotoAlbumMiddleware.validateId, PhotoAlbumController.delete);
+
+routes.get('/videoalbum', VideoAlbumController.index)
+routes.post('/videoalbum', VideoAlbumController.store);
+routes.put('/videoalbum/:id', VideoAlbumMiddleware.validateId, VideoAlbumController.update);
+routes.delete('/videoalbum/:id', VideoAlbumMiddleware.validateId, VideoAlbumController.delete);
 module.exports = routes
