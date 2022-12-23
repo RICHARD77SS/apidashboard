@@ -17,7 +17,8 @@ module.exports = {
       status,
       notification,
       description,
-      additionalFields
+      additionalFields,
+      date
     } = req.body;
     if (!title) {
       return res.status(400).json({
@@ -31,13 +32,14 @@ module.exports = {
       status,
       notification,
       description,
-      additionalFields
+      additionalFields,
+      date
     })
     try {
       await forms.save()
       return res.status(201).json({ message: 'Form Added successfully!' })
     } catch (error) {
-      res, status(400).json({ error: error.message })
+      res.status(400).json({ error: error.message })
     }
   },
   async update(req, res) {
@@ -47,14 +49,16 @@ module.exports = {
       status,
       notification,
       descriprion,
-      additionalFields
+      additionalFields,
+      date
     } = req.body;
     if (!title
       && !caption
       && !status
       && !notification
       && !descriprion
-      && !additionalFields) {
+      && !additionalFields
+      && !date) {
       return res.status(200).json({
         error: 'You must inform a new title or new info'
       })
@@ -65,6 +69,7 @@ module.exports = {
     if (notification) res.forms.notification = notification;
     if (descriprion) res.forms.descriprion = descriprion;
     if (additionalFields) res.forms.additionalFields = additionalFields;
+    if (date) res.forms.date = date;
     try {
       await res.forms.save();
       return res.status(200).json({ message: 'form updated successfully!' })

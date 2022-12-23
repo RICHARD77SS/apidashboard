@@ -107,6 +107,9 @@ const VideoAlbumMiddleware = require('./src/middlewares/VideoAlbumMiddleware');
 const FormsController = require('./src/controllers/FormsController');
 const FormsMiddleware = require('./src/middlewares/FormsMiddleware');
 
+const DocumentsController = require('./src/controllers/DocumentsController');
+const DocumentsMiddleware = require('./src/middlewares/DocumentsMiddleware');
+
 const UploadController = require('./src/controllers/UploadController')
 const multerConfig = require('./src/config/multer')
 const multer = require('multer');
@@ -289,4 +292,9 @@ routes.get('/forms', FormsController.index)
 routes.post('/forms', FormsController.store);
 routes.put('/forms/:id', FormsMiddleware.validateId, FormsController.update);
 routes.delete('/forms/:id', FormsMiddleware.validateId, FormsController.delete);
+
+routes.get('/documents', DocumentsController.index)
+routes.post('/documents', DocumentsController.store);
+routes.put('/documents/:id', DocumentsMiddleware.validateId, DocumentsController.update);
+routes.delete('/documents/:id', DocumentsMiddleware.validateId, DocumentsController.delete);
 module.exports = routes

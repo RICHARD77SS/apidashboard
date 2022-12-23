@@ -28,6 +28,10 @@ const formSchema = new mongoose.Schema({
   additionalFields: {
     type: [],
     required: false,
+  },
+  date: {
+    type: Date,
+    required:false,
   }
 })
 module.exports = mongoose.model('Form', formSchema)
