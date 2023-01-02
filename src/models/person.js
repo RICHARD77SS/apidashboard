@@ -98,7 +98,7 @@ const personSchema = new mongoose.Schema({
     required: false,
   },
   baptized: {
-    type: Boolean,
+    type: String,
     required: false,
   },
   baptismDate: {
@@ -118,7 +118,15 @@ const personSchema = new mongoose.Schema({
     required: false,
   },
   convertedSpouse: {
-    type: Boolean,
+    type: String,
+    required: false,
+  },
+  ageGroup: {
+    type: String,
+    required: false,
+  },
+  age: {
+    type: String,
     required: false,
   },
 
