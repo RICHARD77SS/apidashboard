@@ -9,54 +9,54 @@ const personalCardSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  frontBgImage:{
+  frontBgImage: {
     type: String,
-    required: true,
+    required: false,
   },
-  frontBgColor:{
+  frontBgColor: {
     type: String,
-    required: true,
+    required: false,
   },
-  frontTitleColor:{
+  frontTitleColor: {
     type: String,
-    required: true,
+    required: false,
   },
-  frontTextColor:{
+  frontTextColor: {
     type: String,
-    required: true,
+    required: false,
   },
-  frontSpanColor:{
+  frontSpanColor: {
     type: String,
-    required: true,
+    required: false,
   },
-  frontPositions:{
+  frontPositions: {
     type: [],
-    required: true,
+    required: false,
   },
-  backBgImage:{
+  backBgImage: {
     type: String,
-    required: true,
+    required: false,
   },
-  backBgColor:{
+  backBgColor: {
     type: String,
-    required: true,
+    required: false,
   },
-  backTitleColor:{
+  backTitleColor: {
     type: String,
-    required: true,
+    required: false,
   },
-  backTextColor:{
+  backTextColor: {
     type: String,
-    required: true,
+    required: false,
   },
-  backSpanColor:{
+  backSpanColor: {
     type: String,
-    required: true,
+    required: false,
   },
-  backPositions:{
+  backPositions: {
     type: [],
-    required: true,
+    required: false,
   },
-  
+
 })
 module.exports = mongoose.model('PersonalCard', personalCardSchema)

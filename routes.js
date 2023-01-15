@@ -110,6 +110,9 @@ const FormsMiddleware = require('./src/middlewares/FormsMiddleware');
 const DocumentsController = require('./src/controllers/DocumentsController');
 const DocumentsMiddleware = require('./src/middlewares/DocumentsMiddleware');
 
+const PersonalCardController = require('./src/controllers/PersonalCardController');
+const PersonalCardMiddleware = require('./src/middlewares/PersonalCardMiddleware');
+
 const UploadController = require('./src/controllers/UploadController')
 const multerConfig = require('./src/config/multer')
 const multer = require('multer');
@@ -297,4 +300,9 @@ routes.get('/documents', DocumentsController.index)
 routes.post('/documents', DocumentsController.store);
 routes.put('/documents/:id', DocumentsMiddleware.validateId, DocumentsController.update);
 routes.delete('/documents/:id', DocumentsMiddleware.validateId, DocumentsController.delete);
+
+routes.get('/personalcard', PersonalCardController.index)
+routes.post('/personalcard', PersonalCardController.store);
+routes.put('/personalcard/:id', PersonalCardMiddleware.validateId, PersonalCardController.update);
+routes.delete('/personalcard/:id', PersonalCardMiddleware.validateId, PersonalCardController.delete);
 module.exports = routes

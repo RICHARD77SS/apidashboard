@@ -129,7 +129,10 @@ const personSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
-
+  additionalField: {
+    type: [],
+    required: false,
+  }
 });
 
 module.exports = mongoose.model('Person', personSchema);

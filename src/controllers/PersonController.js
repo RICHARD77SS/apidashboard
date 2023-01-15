@@ -44,7 +44,8 @@ module.exports = {
       convertedSpouse,
       baptismDate,
       ageGroup,
-      age
+      age,
+      additionalField
     } = req.body;
     if (!name) {
       return res.status(400).json({ error: 'Missing name.' })
@@ -81,7 +82,8 @@ module.exports = {
       convertedSpouse,
       baptismDate,
       ageGroup,
-      age
+      age,
+      additionalField
     });
     try {
       await person.save();
@@ -123,7 +125,8 @@ module.exports = {
       convertedSpouse,
       baptismDate,
       ageGroup,
-      age
+      age,
+      additionalField
     } = req.body;
     if (!name
       && !email
@@ -156,6 +159,7 @@ module.exports = {
       && !baptismDate
       && !ageGroup
       && !age
+      && !additionalField
     ) {
       return res.status(200).json({ error: 'you must inform a now name' })
     }
@@ -190,6 +194,7 @@ module.exports = {
     if (baptismDate) res.person.baptismDate = baptismDate
     if (ageGroup) res.person.ageGroup = ageGroup
     if (age) res.person.age = age
+    if (additionalField) res.person.additionalField = additionalField
 
     try {
       await res.person.save();
